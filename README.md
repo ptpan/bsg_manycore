@@ -1,3 +1,18 @@
+# Bigblade chip plus CGRA simulation
+
+This repo contains the C source code that can be used to drive the bigblade chip + CGRA simulations.
+To run the test case, make sure you have successfully compiled the simv (or simv-debug) simulator
+(in hb_bigblade repo) and modify this line in `software/mk/Makefile.paths`
+
+    BSG_MACHINE_PATH ?= $(BSG_MANYCORE_DIR)/machines/pod_1x1
+
+Make sure `BSG_MACHINE_PATH` points to the directory that has simv/simv-debug (e.g., /mnt/users/ssd3/homes/ppan2/bigblade-sim/hb_bigblade/bigblade_toplevel_rc0/testing/post_synth_one_cgra_only/out).
+
+Available test cases:
+
+    software/spmd/one_cgra_xcel_read_write: write to an address in one CGRA (bay 5,1, upper half pod) sram and read it
+    software/spmd/all_cgra_xcel_read_write: write to an address in all CGRA (bay 5,1/3/5/7, both upper and lower half pods) sram and read it
+
 # Overview 
 
 This repo contains the **bsg\_manycore** source code with contributions from the [Bespoke Silicon Group](http://cseweb.ucsd.edu/~mbtaylor/research_team.html) and others.
